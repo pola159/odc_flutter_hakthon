@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orange_odc_flutter_hackathon_code/appScreens/homeScreens/firstScreen.dart';
 import 'package:orange_odc_flutter_hackathon_code/appScreens/screensToLogin/startPage.dart';
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splashIconSize: 200,
         splash: 'images/loginSignImages/Logo.png',
-        nextScreen: startPage(),
+        nextScreen: firstScreen(),
       ),
     ) ;
   }

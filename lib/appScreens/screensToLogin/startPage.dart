@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:orange_odc_flutter_hackathon_code/appScreens/screensToLogin/signScreen.dart';
 import '../controls/controlsForApp.dart';
 
-import 'loginSignScreen.dart';
+import 'loginScreen.dart';
 
 class startPage extends StatefulWidget {
   const startPage({Key? key}) : super(key: key);
@@ -32,7 +33,6 @@ class _startPageState extends State<startPage> {
   @override
   Widget build(BuildContext context) {
     //get size for screen
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
         children: [
@@ -108,7 +108,7 @@ class _startPageState extends State<startPage> {
                               them: true,
                               text: "Join Now",
                               pageToGo: () {
-                                goToScreen(login(member: false));
+                                goToScreen(singin());
                               }),
                         ],
                       ),
@@ -120,7 +120,7 @@ class _startPageState extends State<startPage> {
                               them: false,
                               text: "Log in",
                               pageToGo: () {
-                                goToScreen(login(member: true));
+                                goToScreen(login());
                               }),
                         ],
                       ),

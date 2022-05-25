@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:orange_odc_flutter_hackathon_code/appScreens/screensToLogin/policyScreen.dart';
-import 'package:orange_odc_flutter_hackathon_code/appScreens/screensToLogin/forgetPassword.dart';
+import 'package:orange_odc_flutter_hackathon_code/appScreens/screensToLogin/forget/forgetPassword.dart';
+import 'package:orange_odc_flutter_hackathon_code/appScreens/screensToLogin/signScreen.dart';
 import '../controls/controlsForApp.dart';
 import '../homeScreens/home.dart';
 
 class login extends StatefulWidget {
-  var member;
 
-  login({required this.member, Key? key}) : super(key: key);
+ const login({ Key? key}) : super(key: key);
 
   @override
   State<login> createState() => _loginState();
@@ -40,8 +39,7 @@ class _loginState extends State<login> {
               ),
             ),
             SingleChildScrollView(
-              child: (widget.member)
-                  ? Column(
+              child :Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -130,7 +128,11 @@ class _loginState extends State<login> {
                                   TextButton(
                                     onPressed: () {
                                       setState(() {
-                                        widget.member = !widget.member;
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                const singin()));
                                       });
                                     },
                                     child: orangeText(
@@ -145,123 +147,6 @@ class _loginState extends State<login> {
                         )
                       ],
                     )
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: size.height * 0.09,
-                        ),
-                        Form(
-                            child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                blackText(
-                                    text: "Hello ",
-                                    fontSize: 35,
-                                    wid: FontWeight.w700),
-                                orangeText(
-                                    text: "Friend!",
-                                    fontSize: 35,
-                                    wid: FontWeight.w700),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                blackText(
-                                    text: "Sign Up",
-                                    fontSize: 20,
-                                    wid: FontWeight.w600),
-                              ],
-                            ),
-                            textField(
-                                text: "Full Name",
-                                icon: Icon(Icons.person_outline)),
-                            textField(
-                                text: "E-mail",
-                                icon: Icon(Icons.email_outlined)),
-                            textFieldpass(
-                                text: "Password",
-                                icon: Icon(Icons.lock_outline)),
-                            textField(
-                                text: "Phone number",
-                                icon: Icon(Icons.phone_outlined)),
-                            textField(
-                                text: "Addres",
-                                icon: Icon(Icons.location_on_outlined)),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: CheckboxListTile(
-                                title: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    blackText(
-                                        text: "Do you agree to our",
-                                        fontSize: 13,
-                                        wid: FontWeight.w500),
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const policy()));
-                                      },
-                                      child: orangeText(
-                                          text: "Privacy Policy",
-                                          fontSize: 12.14,
-                                          wid: FontWeight.w500),
-                                    ),
-                                  ],
-                                ),
-                                value: _checkedValue,
-                                onChanged: (newValue) {
-                                  setState(() {
-                                    _checkedValue = newValue!;
-                                  });
-                                },
-                                controlAffinity: ListTileControlAffinity
-                                    .leading, //  <-- leading Checkbox
-                              ),
-                            ),
-                            button(
-                                them: true,
-                                text: "Sign Up",
-                                pageToGo: () {
-                                  setState(() {
-                                    widget.member = !widget.member;
-                                  });
-                                }),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                blackText(
-                                    text: "Already Have an Account?",
-                                    fontSize: 13,
-                                    wid: FontWeight.w500),
-                                TextButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      widget.member = !widget.member;
-                                    });
-                                  },
-                                  child: orangeText(
-                                      text: "Login",
-                                      fontSize: 12.14,
-                                      wid: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ))
-                      ],
-                    ),
             ),
             Positioned(
               left: 0,

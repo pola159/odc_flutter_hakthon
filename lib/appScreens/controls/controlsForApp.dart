@@ -76,3 +76,30 @@ Text blackText({required String text , required double fontSize,required FontWei
         fontFamily: "Roboto"),
   );
 }
+
+// Card Categories({required Icon icon , required String text , required double fontSize}){
+//   return Card(
+//     child: ListTile(
+//
+//        ElevatedButton(
+//         style: ButtonStyle(
+//           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//             RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(15.0),
+//                 side: BorderSide(color: orangColor, width: 2)),
+//           ),
+//           backgroundColor: MaterialStateProperty.all(Colors.white),
+//           minimumSize: MaterialStateProperty.all(Size(double.infinity, double.infinity)),
+//         ),
+//         onPressed: (){},
+//         child: icon,
+//       ),
+//     ),
+//       Text(text , style: TextStyle(
+//         fontSize: fontSize,
+//         color: Colors.black,
+//         fontWeight: FontWeight.w500,
+//       ),)
+//     ,
+//   );
+//}
